@@ -1,0 +1,8 @@
+/.gradle/
+/.idea/
+/.kotlin/
+/build/
+/shared/build/
+/server/build/
+/kotlin-js-store/
+/composeApp/build/

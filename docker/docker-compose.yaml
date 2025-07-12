@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: overture
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: tempPass
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  backend:
+    build:
+      context: ../
+      dockerfile: docker/Dockerfile
+    ports:
+      - "8080:8080"
+      - "5005:5005"
+    environment:
+      - DB_URL=jdbc:postgresql://db:5432/overture
+      - DB_USER=admin
+      - DB_PASSWORD=tempPass
+    depends_on:
+      - db
+
+# if you need pgadmin you can simply comment it in
+#  pgadmin:
+#    image: dpage/pgadmin4
+#    environment:
+#      PGADMIN_DEFAULT_EMAIL: yourMail@spaced-out.com
+#      PGADMIN_DEFAULT_PASSWORD: tempPass
+#    ports:
+#      - "5050:80"
+#    depends_on:
+#      - db
+
+volumes:
+  postgres_data:
