@@ -1,4 +1,4 @@
-rootProject.name = "Oblvion"
+rootProject.name = "overture"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {

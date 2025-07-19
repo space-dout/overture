@@ -2,7 +2,7 @@
 FROM eclipse-temurin:21-jdk-jammy
 
 # Metadata
-LABEL authors="tom"
+LABEL authors="spaced_out"
 
 # Set working directory inside the container
 WORKDIR /app
